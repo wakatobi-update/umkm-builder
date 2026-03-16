@@ -1,1 +1,96 @@
+/* ===============================
+   STORE PAGE
+================================ */
 
+.store{
+padding:80px 0;
+background:#f8fafc;
+min-height:80vh;
+}
+
+.store-container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:center;
+}
+
+
+/* ===============================
+   STORE HEADER
+================================ */
+
+.store-header{
+margin-bottom:30px;
+}
+
+#storeLogo{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+margin:auto;
+margin-bottom:15px;
+border:4px solid #f1f5f9;
+}
+
+#storeName{
+font-size:28px;
+margin-bottom:10px;
+color:#111827;
+}
+
+#storeDescription{
+color:#6b7280;
+font-size:15px;
+}
+
+
+/* ===============================
+   STORE ACTIONS
+================================ */
+
+.store-actions{
+margin-top:25px;
+margin-bottom:35px;
+}
+
+.store-actions .btn-primary{
+padding:14px 28px;
+font-size:16px;
+}
+
+
+/* ===============================
+   QR SECTION
+================================ */
+
+.store-qr{
+margin-top:20px;
+}
+
+.store-qr h3{
+margin-bottom:15px;
+font-size:18px;
+color:#374151;
+}
+
+#qrcode{
+display:flex;
+justify-content:center;
+padding:20px;
+background:#f9fafb;
+border-radius:10px;
+}
+
+
+/* ===============================
+   SMALL HOVER EFFECT
+================================ */
+
+.store-container:hover{
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
