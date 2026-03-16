@@ -180,3 +180,32 @@ function redirectToStore(){
     }, 700);
 
 }
+
+/* =========================
+TAMBAH PRODUK
+========================= */
+
+const addProductBtn = document.getElementById("addProductBtn");
+const productContainer = document.getElementById("productContainer");
+
+if(addProductBtn){
+
+addProductBtn.addEventListener("click", () => {
+
+const productHTML = document.createElement("div");
+
+productHTML.className = "product-item";
+
+productHTML.innerHTML = `
+<input type="text" placeholder="Nama Produk" class="product-name">
+
+<input type="number" placeholder="Harga Produk" class="product-price">
+
+<input type="file" class="product-image">
+`;
+
+productContainer.appendChild(productHTML);
+
+});
+
+}
