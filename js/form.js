@@ -70,41 +70,6 @@ function initLogoPreview(){
 // FORM SUBMIT
 // ===============================
 
-function initFormSubmit(){
-
-    form.addEventListener("submit", handleSubmit);
-
-}
-
-/* =========================
-AMBIL DATA PRODUK
-========================= */
-
-const productNames = document.querySelectorAll(".product-name");
-const productPrices = document.querySelectorAll(".product-price");
-const productImages = document.querySelectorAll(".product-image");
-
-let products = [];
-
-productNames.forEach((input, index) => {
-
-const name = input.value;
-const price = productPrices[index].value;
-
-let image = "";
-
-if(productImages[index].files[0]){
-image = URL.createObjectURL(productImages[index].files[0]);
-}
-
-products.push({
-name:name,
-price:price,
-image:image
-});
-
-});
-
 function handleSubmit(e){
 
     e.preventDefault();
@@ -115,13 +80,47 @@ function handleSubmit(e){
 
     const formData = new FormData(form);
 
+    /* =========================
+       AMBIL DATA PRODUK
+    ========================= */
+
+    const productNames = document.querySelectorAll(".product-name");
+    const productPrices = document.querySelectorAll(".product-price");
+    const productImages = document.querySelectorAll(".product-image");
+
+    let products = [];
+
+    productNames.forEach((input, index) => {
+
+        const name = input.value;
+        const price = productPrices[index].value;
+
+        let image = "";
+
+        if(productImages[index].files[0]){
+            image = URL.createObjectURL(productImages[index].files[0]);
+        }
+
+        products.push({
+            name:name,
+            price:price,
+            image:image
+        });
+
+    });
+
+    /* =========================
+       DATA TOKO
+    ========================= */
+
     const storeData = {
 
         name: formData.get("storeName").trim(),
         description: formData.get("storeDescription").trim(),
         whatsapp: formData.get("whatsapp").trim(),
         template: formData.get("template"),
-        logo: localStorage.getItem("storeLogoPreview") || null
+        logo: localStorage.getItem("storeLogoPreview") || null,
+        products: products
 
     };
 
@@ -130,8 +129,7 @@ function handleSubmit(e){
     redirectToStore();
 
 }
-
-
+    
 // ===============================
 // VALIDATION
 // ===============================
