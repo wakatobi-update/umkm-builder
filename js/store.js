@@ -4,11 +4,13 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const storeData = JSON.parse(localStorage.getItem("storeData"));
+const storeData = JSON.parse(localStorage.getItem("umkmStore"));
 
 if(!storeData){
 return;
 }
+
+});
 
 /* =========================
    ISI DATA TOKO
