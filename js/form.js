@@ -76,6 +76,34 @@ function initFormSubmit(){
 
 }
 
+/* =========================
+AMBIL DATA PRODUK
+========================= */
+
+const productNames = document.querySelectorAll(".product-name");
+const productPrices = document.querySelectorAll(".product-price");
+const productImages = document.querySelectorAll(".product-image");
+
+let products = [];
+
+productNames.forEach((input, index) => {
+
+const name = input.value;
+const price = productPrices[index].value;
+
+let image = "";
+
+if(productImages[index].files[0]){
+image = URL.createObjectURL(productImages[index].files[0]);
+}
+
+products.push({
+name:name,
+price:price,
+image:image
+});
+
+});
 
 function handleSubmit(e){
 
