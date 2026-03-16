@@ -67,97 +67,89 @@ Isi informasi toko di bawah ini untuk membuat halaman toko digital.
 <form id="storeForm" class="store-form">
 
 <!-- Nama Toko -->
-
 <div class="form-group">
-
 <label>Nama Toko</label>
-
 <input 
 type="text" 
 name="storeName" 
 placeholder="Contoh: Toko Sembako Makmur"
 required
 >
-
 </div>
 
-
 <!-- Deskripsi -->
-
 <div class="form-group">
-
 <label>Deskripsi Toko</label>
-
 <textarea 
 name="storeDescription"
 placeholder="Deskripsi singkat tentang toko Anda"
 ></textarea>
-
 </div>
 
-
 <!-- Logo -->
-
 <div class="form-group">
-
 <label>Upload Logo</label>
-
 <input 
 type="file" 
 name="storeLogo"
 accept="image/*"
 >
-
 </div>
 
-
 <!-- WhatsApp -->
-
 <div class="form-group">
-
 <label>Nomor WhatsApp</label>
-
 <input 
 type="text" 
 name="whatsapp"
 placeholder="628123456789"
 >
-
 </div>
 
-
 <!-- Template -->
-
 <div class="form-group">
-
 <label>Pilih Template</label>
-
 <select name="template">
-
 <option value="template1">Template 1</option>
 <option value="template2">Template 2</option>
 <option value="template3">Template 3</option>
-
 </select>
+</div>
+
+<!-- ================= PRODUK ================= -->
+
+<h2>Produk Toko</h2>
+
+<div id="productContainer">
+
+<div class="product-item">
+
+<input type="text" placeholder="Nama Produk" class="product-name">
+
+<input type="number" placeholder="Harga Produk" class="product-price">
+
+<input type="file" class="product-image">
 
 </div>
 
+</div>
 
-<!-- Tombol -->
+<button type="button" id="addProductBtn">
++ Tambah Produk
+</button>
+
+<!-- Tombol Submit -->
 
 <div class="form-actions">
 
 <button type="submit" class="btn-primary">
-
 Buat Website Toko
-
 </button>
 
 </div>
 
-
 </form>
-
+  
 </div>
 
 </section>
@@ -201,9 +193,6 @@ frameborder="0"
 </footer>
 
 
-
-<script src="../js/form.js"></script>
-
   <h2>Produk Toko</h2>
 
 <div id="productContainer">
@@ -223,6 +212,8 @@ frameborder="0"
 <button type="button" id="addProductBtn">
 + Tambah Produk
 </button>
+
+  <script src="../js/form.js"></script>
   
 </body>
   </html>
