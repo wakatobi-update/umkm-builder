@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buat Toko - UMKM Builder</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/form.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="container">
+
+<div class="logo">
+<img src="../assets/logos/logo.png">
+<span>UMKM Builder</span>
+</div>
+
+<nav class="nav">
+
+<a href="../index.html">Home</a>
+<a href="../index.html#fitur">Fitur</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= PAGE TITLE ================= -->
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Buat Website Toko Anda</h1>
+
+<p>
+Isi informasi toko di bawah ini untuk membuat halaman toko digital.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FORM ================= -->
+
+<section class="create-store">
+
+<div class="container">
+
+<form id="storeForm" class="store-form">
+
+<!-- Nama Toko -->
+
+<div class="form-group">
+
+<label>Nama Toko</label>
+
+<input 
+type="text" 
+name="storeName" 
+placeholder="Contoh: Toko Sembako Makmur"
+required
+>
+
+</div>
+
+
+<!-- Deskripsi -->
+
+<div class="form-group">
+
+<label>Deskripsi Toko</label>
+
+<textarea 
+name="storeDescription"
+placeholder="Deskripsi singkat tentang toko Anda"
+></textarea>
+
+</div>
+
+
+<!-- Logo -->
+
+<div class="form-group">
+
+<label>Upload Logo</label>
+
+<input 
+type="file" 
+name="storeLogo"
+accept="image/*"
+>
+
+</div>
+
+
+<!-- WhatsApp -->
+
+<div class="form-group">
+
+<label>Nomor WhatsApp</label>
+
+<input 
+type="text" 
+name="whatsapp"
+placeholder="628123456789"
+>
+
+</div>
+
+
+<!-- Template -->
+
+<div class="form-group">
+
+<label>Pilih Template</label>
+
+<select name="template">
+
+<option value="template1">Template 1</option>
+<option value="template2">Template 2</option>
+<option value="template3">Template 3</option>
+
+</select>
+
+</div>
+
+
+<!-- Tombol -->
+
+<div class="form-actions">
+
+<button type="submit" class="btn-primary">
+
+Buat Website Toko
+
+</button>
+
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= PREVIEW ================= -->
+
+<section class="preview-section">
+
+<div class="container">
+
+<h2>Preview Template</h2>
+
+<div class="template-preview">
+
+<iframe 
+id="templatePreview"
+src="../templates/template1.html"
+frameborder="0"
+></iframe>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<p>© 2026 UMKM Builder</p>
+
+</div>
+
+</footer>
+
+
+
+<script src="../js/form.js"></script>
+
+</body>
+  </html>
