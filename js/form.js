@@ -1,23 +1,25 @@
 // ===============================
-// ELEMENT
+// ELEMENT SELECTOR
 // ===============================
 
 const form = document.getElementById("storeForm");
-const templateSelect = document.querySelector("select[name='template']");
+const templateSelect = document.querySelector("[name='template']");
 const previewFrame = document.getElementById("templatePreview");
-const logoInput = document.querySelector("input[name='storeLogo']");
+const logoInput = document.querySelector("[name='storeLogo']");
+const submitBtn = form.querySelector("button");
 
 
 // ===============================
-// INIT
+// INIT APP
 // ===============================
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
 
-function init(){
     initTemplatePreview();
+    initLogoPreview();
     initFormSubmit();
-}
+
+});
 
 
 // ===============================
@@ -31,6 +33,33 @@ function initTemplatePreview(){
         const template = templateSelect.value;
 
         previewFrame.src = `../templates/${template}.html`;
+
+    });
+
+}
+
+
+// ===============================
+// LOGO PREVIEW
+// ===============================
+
+function initLogoPreview(){
+
+    logoInput.addEventListener("change", function(){
+
+        const file = this.files[0];
+
+        if(!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            localStorage.setItem("storeLogoPreview", e.target.result);
+
+        };
+
+        reader.readAsDataURL(file);
 
     });
 
@@ -52,25 +81,53 @@ function handleSubmit(e){
 
     e.preventDefault();
 
+    if(!validateForm()) return;
+
+    setLoading(true);
+
     const formData = new FormData(form);
 
-    const storeName = formData.get("storeName").trim();
-
-    if(storeName === ""){
-        alert("Nama toko harus diisi");
-        return;
-    }
-
     const storeData = {
-        name: storeName,
-        description: formData.get("storeDescription"),
-        whatsapp: formData.get("whatsapp"),
-        template: formData.get("template")
+
+        name: formData.get("storeName").trim(),
+        description: formData.get("storeDescription").trim(),
+        whatsapp: formData.get("whatsapp").trim(),
+        template: formData.get("template"),
+        logo: localStorage.getItem("storeLogoPreview") || null
+
     };
 
     saveStore(storeData);
 
     redirectToStore();
+
+}
+
+
+// ===============================
+// VALIDATION
+// ===============================
+
+function validateForm(){
+
+    const storeName = form.querySelector("[name='storeName']").value.trim();
+    const whatsapp = form.querySelector("[name='whatsapp']").value.trim();
+
+    if(storeName === ""){
+
+        alert("Nama toko wajib diisi");
+        return false;
+
+    }
+
+    if(whatsapp !== "" && !whatsapp.match(/^62\d+/)){
+
+        alert("Nomor WhatsApp harus diawali dengan 62");
+        return false;
+
+    }
+
+    return true;
 
 }
 
@@ -90,11 +147,36 @@ function saveStore(data){
 
 
 // ===============================
+// BUTTON LOADING
+// ===============================
+
+function setLoading(state){
+
+    if(state){
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Membuat Toko...";
+
+    }else{
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Buat Website Toko";
+
+    }
+
+}
+
+
+// ===============================
 // REDIRECT
 // ===============================
 
 function redirectToStore(){
 
-    window.location.href = "store.html";
+    setTimeout(() => {
 
-              }
+        window.location.href = "store.html";
+
+    }, 700);
+
+}
