@@ -201,7 +201,7 @@ function redirectToStore(){
 
     setTimeout(() => {
 
-        window.location.href = "store.html";
+        window.location.href = "pages/store.html";
 
     }, 700);
 
