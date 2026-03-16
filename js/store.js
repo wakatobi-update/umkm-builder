@@ -1,56 +1,92 @@
-// ===============================
-// LOAD STORE DATA
-// ===============================
+/* =========================
+   LOAD DATA TOKO
+========================= */
 
-document.addEventListener("DOMContentLoaded", loadStore);
+document.addEventListener("DOMContentLoaded", () => {
 
+const storeData = JSON.parse(localStorage.getItem("storeData"));
 
-function loadStore(){
+if(!storeData){
+return;
+}
 
-const data = JSON.parse(localStorage.getItem("umkmStore"));
-
-if(!data) return;
-
-
-// ELEMENT
+/* =========================
+   ISI DATA TOKO
+========================= */
 
 const storeName = document.getElementById("storeName");
-const storeTitle = document.getElementById("storeTitle");
-const storeDescription = document.getElementById("storeDescription");
+const storeDesc = document.getElementById("storeDesc");
 const storeLogo = document.getElementById("storeLogo");
 const whatsappBtn = document.getElementById("whatsappBtn");
 
+if(storeName){
+storeName.textContent = storeData.name || "Nama Toko";
+}
 
-// SET DATA
+if(storeDesc){
+storeDesc.textContent = storeData.description || "";
+}
 
-storeName.textContent = data.name;
-storeTitle.textContent = data.name;
-storeDescription.textContent = data.description;
+if(storeLogo && storeData.logo){
+storeLogo.src = storeData.logo;
+}
 
+/* =========================
+   WHATSAPP LINK
+========================= */
 
-// LOGO
+if(whatsappBtn && storeData.whatsapp){
 
-if(data.logo){
+const phone = storeData.whatsapp.replace(/[^0-9]/g,'');
 
-storeLogo.src = data.logo;
-
-}else{
-
-storeLogo.style.display = "none";
+whatsappBtn.href =
+"https://wa.me/" + phone + "?text=Halo saya tertarik dengan produk Anda";
 
 }
 
+/* =========================
+   LOAD PRODUK
+========================= */
 
-// WHATSAPP LINK
+const productList = document.getElementById("productList");
 
-if(data.whatsapp){
+if(productList && storeData.products){
 
-whatsappBtn.href = "https://wa.me/" + data.whatsapp;
+productList.innerHTML = "";
 
-}else{
+storeData.products.forEach(product => {
 
-whatsappBtn.style.display = "none";
+const productCard = document.createElement("div");
+
+productCard.className = "product-card";
+
+productCard.innerHTML = `
+<img src="${product.image}">
+<div class="product-info">
+<div class="product-name">${product.name}</div>
+<div class="product-price">Rp ${product.price}</div>
+</div>
+`;
+
+productList.appendChild(productCard);
+
+});
 
 }
 
+/* =========================
+   QR CODE TOKO
+========================= */
+
+const qrImage = document.getElementById("storeQR");
+
+if(qrImage){
+
+const storeUrl = window.location.href;
+
+qrImage.src =
+"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(storeUrl);
+
 }
+
+});
