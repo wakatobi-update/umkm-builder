@@ -11,6 +11,7 @@ box-sizing:border-box;
 
 html,body{
 overflow-x:hidden;
+width:100%
 }
 
 body{
@@ -31,6 +32,9 @@ display:block;
 height:auto;
 }
 
+{
+max-width:100%;
+}
 /* ===============================
    LAYOUT
 ================================ */
@@ -136,10 +140,10 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 .hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+align-items:center;
+gap:40px;
 }
 
 .hero-text h1{
@@ -154,8 +158,10 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 .hero-buttons{
-    display:flex;
-    align-items:center;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .hero-image img{
