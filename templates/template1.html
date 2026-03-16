@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Halaman Toko</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f1f5f9;
+color:#1f2937;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:600px;
+margin:auto;
+padding:20px;
+}
+
+/* PROFILE */
+
+.store-profile{
+text-align:center;
+margin-top:30px;
+}
+
+.store-logo{
+width:120px;
+height:120px;
+border-radius:50%;
+overflow:hidden;
+margin:auto;
+border:4px solid white;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.store-logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.store-name{
+font-size:26px;
+font-weight:600;
+margin-top:15px;
+}
+
+.store-desc{
+color:#6b7280;
+margin-top:8px;
+font-size:14px;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp-btn{
+display:block;
+margin:25px auto;
+background:#25D366;
+color:white;
+padding:14px;
+border-radius:10px;
+font-weight:600;
+text-align:center;
+width:100%;
+max-width:300px;
+transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+background:#1ebe5d;
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* PRODUCT SECTION */
+
+.products{
+margin-top:40px;
+}
+
+.products h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.product-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-5px);
+}
+
+.product-card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+.product-info{
+padding:10px;
+}
+
+.product-name{
+font-size:14px;
+font-weight:500;
+}
+
+.product-price{
+color:#2563eb;
+font-weight:600;
+font-size:14px;
+margin-top:5px;
+}
+
+/* QR SECTION */
+
+.qr-section{
+margin-top:40px;
+text-align:center;
+}
+
+.qr-section img{
+width:160px;
+margin:auto;
+margin-top:10px;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:40px;
+text-align:center;
+font-size:12px;
+color:#9ca3af;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.product-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PROFILE -->
+
+<div class="store-profile">
+
+<div class="store-logo">
+<img id="storeLogo" src="../assets/logos/default.png">
+</div>
+
+<div class="store-name" id="storeName">
+Nama Toko
+</div>
+
+<div class="store-desc" id="storeDesc">
+Deskripsi toko akan tampil di sini
+</div>
+
+<a id="whatsappBtn" class="whatsapp-btn" target="_blank">
+Chat WhatsApp
+</a>
+
+</div>
+
+<!-- PRODUK -->
+
+<div class="products">
+
+<h2>Produk Kami</h2>
+
+<div class="product-grid" id="productList">
+
+<!-- contoh produk -->
+
+<div class="product-card">
+<img src="../assets/images/product1.jpg">
+<div class="product-info">
+<div class="product-name">Produk Contoh</div>
+<div class="product-price">Rp 50.000</div>
+</div>
+</div>
+
+<div class="product-card">
+<img src="../assets/images/product1.jpg">
+<div class="product-info">
+<div class="product-name">Produk Contoh</div>
+<div class="product-price">Rp 50.000</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- QR -->
+
+<div class="qr-section">
+
+<h3>Scan QR Toko</h3>
+
+<img id="storeQR">
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+UMKM Builder
+</div>
+
+</div>
+
+<script src="../js/store.js"></script>
+
+</body>
+  </html>
